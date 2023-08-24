@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { getGreeting } from '../apiClient.ts'
 import Punchline from './Punchline.tsx'
 import Joke from './Joke.tsx'
 function App() {
