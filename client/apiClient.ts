@@ -1,5 +1,11 @@
 import request from 'superagent'
 
-export async function getJokeById(id: number) {}
+const serverUrl = '/api/v1/'
 
-export async function getPunchlineById(id: number) {}
+export async function getJokeById(id: number) {
+  return await request.get(`${serverUrl}joke/${id}`)
+}
+
+export async function getPunchlineById(id: number) {
+  return await request.get(`${serverUrl}punchline/${id}`)
+}
