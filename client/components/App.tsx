@@ -1,35 +1,18 @@
 import { useState, useEffect } from 'react'
 import { getGreeting } from '../apiClient.ts'
-
-const App = () => {
-  const [greeting, setGreeting] = useState('')
-  const [count, setCount] = useState(0)
-  const [isError, setIsError] = useState(false)
-
-  useEffect(() => {
-    getGreeting()
-      .then((greeting) => {
-        console.log(greeting)
-        setGreeting(greeting)
-        setIsError(false)
-      })
-      .catch((err) => {
-        console.log(err)
-        setIsError(true)
-      })
-  }, [count])
+import Punchline from './Punchline.tsx'
+import Joke from './Joke.tsx'
+function App() {
+  //TODO Use state to show which page
+  //-------
+  const [state, setState] = useState(0)
 
   return (
-    <>
-      {count}
-      <h1>{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button>
-    </>
+    <div>
+      <h1>This is the home page</h1>
+      {state % 2 == 1 && <Joke />}
+      {state % 2 == 0 && <Punchline />}
+    </div>
   )
 }
 
