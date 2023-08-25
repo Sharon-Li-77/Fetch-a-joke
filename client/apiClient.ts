@@ -3,9 +3,11 @@ import request from 'superagent'
 const serverUrl = '/api/v1/'
 
 export async function getJokeById(id: number) {
-  return await request.get(`${serverUrl}joke/${id}`)
+  const res = await request.get(`${serverUrl}joke/${id}`)
+  return res.body
 }
 
 export async function getPunchlineById(id: number) {
-  return await request.get(`${serverUrl}punchline/${id}`)
+  const res = await request.get(`${serverUrl}punchline/${id}`)
+  return res.body
 }

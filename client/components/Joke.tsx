@@ -1,26 +1,23 @@
+import { useState } from 'react'
 import { getPunchlineById } from '../apiClient'
 
 interface Props {
   state: number
+  joke: string
+  setState: React.Dispatch<React.SetStateAction<number>>
 }
 
 function Joke(props: Props) {
-  // const number= [0,1,2,3,4 ]
-  console.log(props.state)
-  async function handleClick(id: number) {
-    const number = props.state + 1
-    await getPunchlineById(number)
+  async function handleClick() {
+    props.setState(props.state + 1)
   }
 
   return (
     <>
-      <h1>Joke goes here</h1>
+      <h1>{props.joke}</h1>
       <div>
-        <img
-          src="../public/images/joke-component-image.jpeg"
-          alt="dad joke"
-        ></img>
-        <button onClick={handleClick(props.state)}>reveal punchline</button>
+        <img src="/images/joke-component-image.jpeg" alt="dad joke"></img>
+        <button onClick={handleClick}>reveal punchline</button>
       </div>
     </>
   )
