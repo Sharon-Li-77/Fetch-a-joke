@@ -25,5 +25,35 @@ export async function seed(knex) {
       joke: `Where do fish keep their money?`,
       punchLine: `In the riverbank`,
     },
+    {
+      id: 6,
+      joke: `How do celebrities stay cool?`,
+      punchLine: `They have many fans.`,
+    },
+    {
+      id: 7,
+      joke: `What do you call a fake noodle?`,
+      punchLine: `An impasta.`,
+    },
+    {
+      id: 8,
+      joke: `How do you organize a space party?`,
+      punchLine: `You planet.`,
+    },
+    {
+      id: 9,
+      joke: `Wanna hear a joke about paper?`,
+      punchLine: `Never mind—it's tearable.`,
+    },
+    {
+      id: 10,
+      joke: `Every time I take my dog to the park, the ducks try to bite him.`,
+      punchLine: `That's what I get for buying a pure bread dog.`,
+    },
+    {
+      id: 11,
+      joke: `How do you make a Kleenex dance?`,
+      punchLine: `Put a little boogie in it!`,
+    },
   ])
 }
