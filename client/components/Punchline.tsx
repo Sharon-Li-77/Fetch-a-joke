@@ -34,7 +34,11 @@ function Punchline(props: Props) {
       <div className="image-container">
         <img src="/images/joke-component-image.png" alt="dad joke"></img>
       </div>
-      <button onClick={handleClick}>Fetch a new Joke</button>
+      <div>
+        <button className="button" onClick={handleClick}>
+          <em>Fetch a new Joke</em>
+        </button>
+      </div>
     </>
   )
 }

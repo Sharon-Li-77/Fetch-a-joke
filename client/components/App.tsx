@@ -9,8 +9,6 @@ function App() {
 
   return (
     <div>
-      <h1>This is the home page</h1>
-
       {display == 'joke' && <Joke id={id} setDisplay={setDisplay} />}
       {display == 'punchline' && (
         <Punchline id={id} setId={setId} setDisplay={setDisplay} />

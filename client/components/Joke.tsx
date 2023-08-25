@@ -25,7 +25,11 @@ function Joke(props: Props) {
       <div className="image-container">
         <img src="/images/joke-component-image.png" alt="dad joke"></img>
       </div>
-      <button onClick={handleClick}>reveal punchline</button>
+      <div>
+        <button className="button" onClick={handleClick}>
+          <em>Reveal punchline</em>
+        </button>
+      </div>
     </>
   )
 }

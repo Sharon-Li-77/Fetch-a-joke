@@ -1,5 +1,6 @@
 * {
   font-family:'Courier New', Courier, monospace;
+  
 }
 
 body {
@@ -10,7 +11,27 @@ body {
   background-color: blueviolet;
 } */
 
+h1 {
+  font-size: 70px;
+  color: yellow;
+}
+
 .image-container {
  display: flex;
  flex-direction: row-reverse;
 }
+
+.button {
+  display: flex;
+  height: 100px;
+  background-color: yellow;
+  padding: 100px;
+  font-size: 50px;
+  border-radius: 35%;
+  
+}
+
+button {
+  align-items: center;
+}
+
