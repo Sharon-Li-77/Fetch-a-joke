@@ -4,25 +4,18 @@ import Joke from './Joke.tsx'
 import { getJokeById } from '../apiClient.ts'
 
 function App() {
-  //TODO Use state to show which page
-  //-------
-  const [state, setState] = useState(1)
-  const [joke, setJoke] = useState('')
+  const [id, setId] = useState(1)
 
-  async function loadJoke(id: number) {
-    const data = await getJokeById(id)
-    setJoke(data.joke)
-  }
-  useEffect(() => {
-    loadJoke(state)
-  }, [])
+  const [display, setDisplay] = useState('joke')
 
   return (
     <div>
       <h1>This is the home page</h1>
 
-      {state % 2 == 1 && <Joke joke={joke} state={state} setState={setState} />}
-      {state % 2 == 0 && <Punchline state={state} setState={setState} />}
+      {display == 'joke' && <Joke id={id} setDisplay={setDisplay} />}
+      {display == 'punchline' && (
+        <Punchline id={id} setId={setId} setDisplay={setDisplay} />
+      )}
     </div>
   )
 }

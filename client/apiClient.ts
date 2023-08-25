@@ -11,3 +11,8 @@ export async function getPunchlineById(id: number) {
   const res = await request.get(`${serverUrl}punchline/${id}`)
   return res.body
 }
+
+export async function jokeCountFromFE() {
+  const res = await request.get(`${serverUrl}count`)
+  return res.body
+}

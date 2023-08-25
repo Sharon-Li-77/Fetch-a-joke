@@ -1,20 +1,41 @@
-import { useState } from 'react'
-import { getPunchlineById } from '../apiClient'
+import { useEffect, useState } from 'react'
+import { getPunchlineById, jokeCountFromFE } from '../apiClient'
 
 interface Props {
-  state: number
-  setState: React.Dispatch<React.SetStateAction<number>>
+  id: number
+  setId: React.Dispatch<React.SetStateAction<number>>
+  setDisplay: React.Dispatch<React.SetStateAction<string>>
 }
 
 function Punchline(props: Props) {
   const [punchline, setPunchline] = useState('')
-
-  async function loadPunchline(id: number) {
+  async function loadPunchLine(id: number) {
     const data = await getPunchlineById(id)
     setPunchline(data.punchLine)
   }
-  loadPunchline(1)
+  useEffect(() => {
+    loadPunchLine(props.id)
+  }, [])
 
-  return <p>{punchline}</p>
+  async function handleClick() {
+    const numberOfJokes = await jokeCountFromFE()
+    if (numberOfJokes > props.id) {
+      props.setId(props.id + 1)
+      props.setDisplay('joke')
+    } else {
+      props.setId(1)
+      props.setDisplay('joke')
+    }
+  }
+
+  return (
+    <>
+      <h1>{punchline}</h1>
+      <div className="image-container">
+        <img src="/images/joke-component-image.png" alt="dad joke"></img>
+      </div>
+      <button onClick={handleClick}>Fetch a new Joke</button>
+    </>
+  )
 }
 export default Punchline

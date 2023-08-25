@@ -22,8 +22,20 @@ router.get('/joke/:id', async (req, res) => {
 router.get('/punchline/:id', async (req, res) => {
   try {
     const thePunchLine = await db.getPunchLine(Number(req.params.id))
-    // console.log(theJoke)
     res.json(thePunchLine)
+  } catch (err) {
+    if (err instanceof Error) {
+      res.status(500).send((err as Error).message)
+    } else {
+      res.status(500).send('Something went wrong')
+    }
+  }
+})
+
+router.get('/count', async (req, res) => {
+  try {
+    const data = await db.countJokes()
+    if (data) res.json(data.count)
   } catch (err) {
     if (err instanceof Error) {
       res.status(500).send((err as Error).message)

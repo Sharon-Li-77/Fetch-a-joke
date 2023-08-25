@@ -1,0 +1,16 @@
+* {
+  font-family:'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: purple;
+}
+
+/* div {
+  background-color: blueviolet;
+} */
+
+.image-container {
+ display: flex;
+ flex-direction: row-reverse;
+}
