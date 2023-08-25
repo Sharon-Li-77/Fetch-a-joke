@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Punchline from './Punchline.tsx'
 import Joke from './Joke.tsx'
-import { getJokeById } from '../apiClient.ts'
 
 function App() {
   const [id, setId] = useState(1)
